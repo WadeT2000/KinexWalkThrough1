@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 8081;
 
-const knex = require('knex')(require('../knexfile.js')["development"]);
+const knex = require('knex')(require('../knexfile.js')[process.env.NODE_ENV || "development"]);
 
 app.get('/', (req, res) => {
     res.send('Application is up and running')
